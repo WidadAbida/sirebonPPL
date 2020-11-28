@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Jadwal Konsumsi Obat</title>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;}
+                    
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;}
+                    
+            tr:nth-child(even) {
+                background-color: #dddddd;}
+        </style>
+    </head>
+
+    <body>
+        <nav class="w3-bar w3-black">
+            <a href="jadwal.html" class="w3-button w3-bar-item">Jadwal</a>
+            <a href="mintaresep.html" class="w3-button w3-bar-item">Minta Resep</a>
+            <button class="button" id='logout'> Logout </button>
+        </nav>
+        <h1> Jadwal Minum Obat Anda</h1>
+        <table>
+            <tr>
+                <th>Nama Obat</th>
+                <th>Minum ...x Sehari</th>
+                <th>Sebelum/Sesudah Makan</th>
+                <th>Quantity</th>
+                </tr>
+                <tr>
+                  <td>Pro TB</td>
+                  <td>1</td>
+                  <td>Sebelum</td>
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <td>Analtram</td>
+                  <td>3</td>
+                  <td>Sesudah</td>
+                  <td>20</td>
+                </tr>
+        </table>
+
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="/__/firebase/8.1.1/firebase-app.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			https://firebase.google.com/docs/web/setup#available-libraries -->
+			<script src="/__/firebase/8.1.1/firebase-firestore.js"></script>
+			<script src="/__/firebase/8.1.1/firebase-auth.js"></script>
+
+		<!-- Initialize Firebase -->
+		<!-- <script src="/__/firebase/init.js"></script> -->
+
+		<!-- Initialize with Emulator-->
+		<script src="/__/firebase/init.js?useEmulator=true "></script>
+		<script src="index.js"></script>
+		<script src="auth.js"></script>
+    </body>
+</html>

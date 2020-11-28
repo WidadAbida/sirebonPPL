@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title> Request Resep</title>
+        <style>
+                table {
+                  font-family: arial, sans-serif;
+                  border-collapse: collapse;
+                  width: 100%;}
+                        
+                td, th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;}
+                        
+                tr:nth-child(even) {
+                    background-color: #dddddd;}
+        </style>
+    </head>
+    <body>
+        <nav class="w3-bar w3-black">
+            <a href="daftarpasien.html" class="w3-button w3-bar-item">Daftar Pasien</a>
+            <a href="requestresep.html" class="w3-button w3-bar-item">Request Resep</a>
+            <button class="button" id='logout'> Logout </button>
+        </nav>
+
+        <h1>Request Obat Pasien Anda</h1>
+        <table>
+                <tr>
+                <th>Nama Pasien</th>
+                <th>Nama Penyakit</th>
+                <th>Nama Obat</th>
+                <th>Selesai</th>
+                </tr>
+                <tr>
+                <td>Budi</td>
+                <td>TBC</td>
+                <td>Pro TB</td>
+                <td><button class="button">Done</button></td> <!--setelah button dipencet nanti ilang dari tabel-->
+                </tr>
+                <tr>
+                <td>Budi</td>
+                <td>TBC</td>
+                <td>Analtram</td>
+                <td><button class="button">Done</button></td>
+                </tr>
+                <tr>
+                <td>Anna</td>
+                <td>Hati</td>
+                <td>Analtram</td>
+                <td><button class="button">Done</button></td>
+                </tr>
+        </table>
+
+        <h2>Kirim Resep</h2>
+
+        <form action=" "> <!-- tempat sambung ke database-->
+        <label for="namaObat">Nama Obat 1 :</label><br>
+        <input type="text" id="napaObat" name="napaObat" required><br>
+        <label for="minum">Diminum ...x sehari :</label><br>
+        <input type="number" id="minum" name="minum" required><br>
+        <label for="sebses">Sebelum/Sesudah makan :</label><br>
+        <input type="text" id="sebses" name="sebses" required><br>
+        <label for="quantity">Quantity :</label><br>
+        <input type="number" id="Quantity" name="Quantity" required><br>
+
+        <label for="namaObat">Nama Obat 2 :</label><br>
+        <input type="text" id="napaObat" name="napaObat"><br>
+        <label for="minum">Diminum ...x sehari :</label><br>
+        <input type="number" id="minum" name="minum"><br>
+        <label for="sebses">Sebelum/Sesudah makan :</label><br>
+        <input type="text" id="sebses" name="sebses"><br>
+        <label for="quantity">Quantity :</label><br>
+        <input type="number" id="Quantity" name="Quantity"><br>
+
+        <label for="namaObat">Nama Obat 3 :</label><br>
+        <input type="text" id="napaObat" name="napaObat"><br>
+        <label for="minum">Diminum ...x sehari :</label><br>
+        <input type="number" id="minum" name="minum"><br>
+        <label for="sebses">Sebelum/Sesudah makan :</label><br>
+        <input type="text" id="sebses" name="sebses"><br>
+        <label for="quantity">Quantity :</label><br>
+        <input type="number" id="Quantity" name="Quantity"><br>
+
+        <input type="submit" value="Submit">
+        </form> 
+
+
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="/__/firebase/8.1.1/firebase-app.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			https://firebase.google.com/docs/web/setup#available-libraries -->
+			<script src="/__/firebase/8.1.1/firebase-firestore.js"></script>
+			<script src="/__/firebase/8.1.1/firebase-auth.js"></script>
+
+		<!-- Initialize Firebase -->
+		<!-- <script src="/__/firebase/init.js"></script> -->
+
+		<!-- Initialize with Emulator-->
+		<script src="/__/firebase/init.js?useEmulator=true "></script>
+		<script src="index.js"></script>
+		<script src="auth.js"></script>
+    </body>
+</html>
