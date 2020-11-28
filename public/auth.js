@@ -43,15 +43,71 @@ if(registerDokter){
 
         auth.createUserWithEmailAndPassword(email, psw).then( () => {
             db.collection("dokter").doc(email).set({
-                        nama : nama,
-                        sip : sip,
-                        email : email,
-                        notelp : notelp,
+                nama : nama,
+                sip : sip,
+                email : email,
+                notelp : notelp,
+            }).then(() => {
+                alert('User Registration Succesfull!');
+                window.location.href='daftarpasien.html'
             })
-            alert('User Registration Succesfull!');
-            window.location.href='daftarpasien.html'
         })       
     });    
+}
+
+// Login Pasien
+const loginPasien = document.querySelector('#loginPasien')
+
+if(loginPasien){
+    loginPasien.addEventListener('submit', (e) =>{
+        e.preventDefault();
+
+        const email = loginPasien[name = 'email'].value;
+        const psw = loginPasien[name = 'psw'].value;
+
+        const docRef = db.collection("pasien").doc(email);
+
+        docRef.get().then(function(doc){
+            if(doc.exists){
+                auth.signInWithEmailAndPassword(email, psw).then( () =>{
+                    alert('Login Succesfull!');
+                    window.location.href='jadwal.html'
+                }) 
+            }
+            else{
+                alert('User tidak ditemukan!');
+                loginPasien.reset();
+            }
+        })    
+    })    
+}
+
+
+// Login Dokter
+const loginDokter = document.querySelector('#loginDokter')
+
+if(loginDokter){
+    loginDokter.addEventListener('submit', (e) =>{
+        e.preventDefault();
+
+        const email = loginDokter[name = 'email'].value;
+        const psw = loginDokter[name = 'psw'].value;
+
+        const docRef = db.collection("dokter").doc(email);
+
+        docRef.get().then(function(doc){
+            if(doc.exists){
+                auth.signInWithEmailAndPassword(email, psw).then( () =>{
+                    alert('Login Succesfull!');
+                    window.location.href='daftarpasien.html'
+                }) 
+            }
+            else{
+                alert('User tidak ditemukan!');
+                loginDokter.reset();
+            }
+        })    
+    })    
 }
 
 
@@ -64,19 +120,5 @@ if(logout){
             alert('Logout success')
             window.location.href='index.html'
         })
-       
     })   
 }
-
-// Login Pasien
-const loginPasien = document.querySelector('#loginPasien')
-loginPasien.addEventListener('submit', (e) =>{
-    e.preventDefault();
-
-    const email = loginPasien[name = 'email'].value;
-    const psw = loginPasien[name = 'psw'].value;
-
-    auth.signInWithPasswordAndEmail(email, password).then( () =>{
-
-    })
-})
