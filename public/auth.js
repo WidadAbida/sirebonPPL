@@ -13,7 +13,7 @@ if(registerPasien){
         const dokter = registerPasien[name = 'dokter'].value;
 
         auth.createUserWithEmailAndPassword(email, psw).then( () =>{
-            db.collection("pasien").add({
+            db.collection("pasien").doc(email).set({
                 nama : nama,
                 nik : nik,
                 email : email,
@@ -42,7 +42,7 @@ if(registerDokter){
         const notelp = registerDokter[name = 'notelp'].value;
 
         auth.createUserWithEmailAndPassword(email, psw).then( () => {
-            db.collection("dokter").add({
+            db.collection("dokter").doc(email).set({
                         nama : nama,
                         sip : sip,
                         email : email,
