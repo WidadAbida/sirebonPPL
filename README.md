@@ -4,8 +4,8 @@ Sirebon (Sistem Resep Obat Online) untuk tugas Pengembangan Perangkat Lunak
 https://sirebonppl.web.app
 
 Collaborators :
-  - Aryasakti Wirasena
-  - Francisca Catherine S
-  - Karunia Eka Putri
-  - Muhammad Rionaldi
-  - Widad Abida Rahma
+  - Aryasakti Wirasena ([AWFlister](github.com/AWFlister))
+  - Francisca Catherine S ([franciscatherince](github.com/franciscatherince))
+  - Karunia Eka Putri ([Puputkarunia](github.com/Puputkarunia))
+  - Muhammad Rionaldi ([rionaldimuh](github.com/rionaldimuh))
+  - Widad Abida Rahma ([WidadAbida](github.com/WidadAbida))
