@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
         <title> Request Resep</title>
         <style>
                 table {
@@ -56,35 +57,39 @@
 
         <h2>Kirim Resep</h2>
 
-        <form action=" "> <!-- tempat sambung ke database-->
-        <label for="namaObat">Nama Obat 1 :</label><br>
-        <input type="text" id="napaObat" name="napaObat" required><br>
-        <label for="minum">Diminum ...x sehari :</label><br>
-        <input type="number" id="minum" name="minum" required><br>
-        <label for="sebses">Sebelum/Sesudah makan :</label><br>
-        <input type="text" id="sebses" name="sebses" required><br>
-        <label for="quantity">Quantity :</label><br>
-        <input type="number" id="Quantity" name="Quantity" required><br>
+        <form id="kirimResep"> <!-- tempat sambung ke database-->
+            <label for="namaObat">Nama Obat 1 :</label><br>
+            <input type="text" id="namaObat" name="namaObat" required><br>
+            <label for="minum">Diminum ...x sehari :</label><br>
+            <input type="number" id="minum" name="minum" required><br>
+            <label for="sebses">Sebelum/Sesudah makan :</label><br>
+            <select id="sebses">
+                <option value="sebelum">Sebelum</option>
+                <option value="sesudah">Sesudah</option>
+            </select><br>
+            <label for="quantity">Quantity :</label><br>
+            <input type="number" id="quantity" name="quantity" required><br>
+            <!--
+            <label for="namaObat">Nama Obat 2 :</label><br>
+            <input type="text" id="napaObat" name="napaObat"><br>
+            <label for="minum">Diminum ...x sehari :</label><br>
+            <input type="number" id="minum" name="minum"><br>
+            <label for="sebses">Sebelum/Sesudah makan :</label><br>
+            <input type="text" id="sebses" name="sebses"><br>
+            <label for="quantity">Quantity :</label><br>
+            <input type="number" id="Quantity" name="Quantity"><br>
 
-        <label for="namaObat">Nama Obat 2 :</label><br>
-        <input type="text" id="napaObat" name="napaObat"><br>
-        <label for="minum">Diminum ...x sehari :</label><br>
-        <input type="number" id="minum" name="minum"><br>
-        <label for="sebses">Sebelum/Sesudah makan :</label><br>
-        <input type="text" id="sebses" name="sebses"><br>
-        <label for="quantity">Quantity :</label><br>
-        <input type="number" id="Quantity" name="Quantity"><br>
-
-        <label for="namaObat">Nama Obat 3 :</label><br>
-        <input type="text" id="napaObat" name="napaObat"><br>
-        <label for="minum">Diminum ...x sehari :</label><br>
-        <input type="number" id="minum" name="minum"><br>
-        <label for="sebses">Sebelum/Sesudah makan :</label><br>
-        <input type="text" id="sebses" name="sebses"><br>
-        <label for="quantity">Quantity :</label><br>
-        <input type="number" id="Quantity" name="Quantity"><br>
-
-        <input type="submit" value="Submit">
+            <label for="namaObat">Nama Obat 3 :</label><br>
+            <input type="text" id="napaObat" name="napaObat"><br>
+            <label for="minum">Diminum ...x sehari :</label><br>
+            <input type="number" id="minum" name="minum"><br>
+            <label for="sebses">Sebelum/Sesudah makan :</label><br>
+            <input type="text" id="sebses" name="sebses"><br>
+            <label for="quantity">Quantity :</label><br>
+            <input type="number" id="Quantity" name="Quantity"><br>
+            -->
+            <button id="tambahObat">Tambah obat</button>
+            <input id="submit" type="submit" value="Submit">
         </form> 
 
 

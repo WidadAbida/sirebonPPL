@@ -13,13 +13,23 @@ if(registerPasien){
         const dokter = registerPasien[name = 'dokter'].value;
 
         auth.createUserWithEmailAndPassword(email, psw).then( () =>{
-            db.collection("pasien").doc(email).set({
+
+            const dbPasien = db.collection("pasien").doc(email).set({
                 nama : nama,
                 nik : nik,
                 email : email,
                 notelp : notelp,
                 dokter : dokter
-            }).then(() => {
+            })
+
+            const jadwal = db.collection('jadwal').doc(email).set({
+                obat : [],
+                frekuensi : [],
+                sebses : [],
+                quantity : []
+            })
+
+            Promise.all([dbPasien, jadwal]).then(() => {
                 alert('User Registration Succesfull!');
                 window.location.href='jadwal.html'
             })
@@ -42,12 +52,20 @@ if(registerDokter){
         const notelp = registerDokter[name = 'notelp'].value;
 
         auth.createUserWithEmailAndPassword(email, psw).then( () => {
-            db.collection("dokter").doc(email).set({
+            const dbDokter = db.collection("dokter").doc(email).set({
                 nama : nama,
                 sip : sip,
                 email : email,
-                notelp : notelp,
-            }).then(() => {
+                notelp : notelp
+            })
+            
+            const request = db.collection('requestResep').doc(email).set({
+                pasien = [],
+                penyakit = [],
+                obat = [],
+            })
+
+            Promise.all([dbDokter, request]).then(() => {
                 alert('User Registration Succesfull!');
                 window.location.href='daftarpasien.html'
             })
