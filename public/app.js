@@ -1,7 +1,4 @@
-//Event listener untuk nambah obat
-const tambahObat = document.querySelector('#tambahObat')
-
-//Kirim resep dari dokter ke db
+//Kirim resep dari dokter ke pasien
 const kirimResep = document.querySelector('#kirimResep')
 
 if(kirimResep){
@@ -15,7 +12,6 @@ if(kirimResep){
         const quantity = kirimResep['quantity'].value
 
         db.collection('jadwal').doc(email).get().then((doc) =>{
-            console.log(doc)
             let obat = doc.data().obat
             let frekuensi = doc.data().frekuensi
             let csebses = doc.data().sebses
@@ -33,7 +29,59 @@ if(kirimResep){
                 quantity : cquantity
             }, {merge : true}).then(() =>{
                 alert('Resep terkirim')
+                kirimResep.reset()
             })
         })
     })
+}
+
+// Kirim request dari pasien ke dokter
+
+const mintaResep = document.querySelector('#mintaResep')
+
+if(mintaResep){
+    auth.onAuthStateChanged(function(user) {
+        if (user) {
+            mintaResep.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const email = user.email
+
+                db.collection('pasien').doc(email).get().then(function(doc){
+                    const dokter = doc.data().dokter
+                    const namaPasien = doc.data().nama
+                    const penyakit = mintaResep['namaP'].value
+                    const obat = mintaResep['namaObat'].value
+
+                    db.collection('dokter').where('nama', '==', dokter).get().then( function(snap){
+                        snap.forEach(doc => {
+                            const emailDokter = doc.data().email
+
+                            db.collection('requestResep').doc(emailDokter).get().then((doc) =>{
+                                let pasien = doc.data().pasien
+                                let cpenyakit = doc.data().penyakit
+                                let cobat = doc.data().obat
+                    
+                                pasien.push(namaPasien)
+                                cpenyakit.push(penyakit)
+                                cobat.push(obat)
+                    
+                                db.collection('requestResep').doc(emailDokter).set({
+                                    pasien : pasien,
+                                    penyakit : cpenyakit,
+                                    obat : cobat
+                                }, {merge : true}).then(() =>{
+                                    alert('Permintaan terkirim')
+                                    mintaResep.reset()
+                                })
+                            })
+                        });
+                    })
+
+                })
+            })
+        } else {
+          console.log('No user logged in')
+        }
+    });
 }

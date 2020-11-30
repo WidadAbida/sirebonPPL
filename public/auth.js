@@ -1,7 +1,3 @@
-// Get current user
-
-
-
 // Register Pasien
 const registerPasien = document.querySelector("#registerPasien");
 

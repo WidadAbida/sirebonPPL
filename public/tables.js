@@ -4,9 +4,6 @@
 
 // tabel jadwal
 
-
-
-let currentUser
 auth.onAuthStateChanged(function(user) {
     if (user) {
         const jadwal = document.querySelector('#jadwal')
@@ -41,8 +38,49 @@ auth.onAuthStateChanged(function(user) {
                 }
             })
         }
+
+        const requestResep = document.querySelector('#requestResep')
+
+        if(requestResep){
+            console.log(user)
+            const email = user.email
+
+            db.collection('requestResep').doc(email).get().then(function(doc) {
+                if(doc.exists){
+                    for(i=0;i<doc.data().pasien.length;i++){
+                        let tr = document.createElement('tr')
+                        let pasien = document.createElement('td')
+                        let penyakit = document.createElement('td')
+                        let obat = document.createElement('td')
+                        let botantd = document.createElement('td')
+                        let botan = document.createElement('button')
+
+
+                        botan.className = 'button'
+                        botan.innerText = 'Done'
+
+                        pasien.innerText = doc.data().pasien[i]
+                        penyakit.innerText = doc.data().penyakit[i]
+                        obat.innerText = doc.data().obat[i]
+                        botantd.appendChild(botan)
+
+                        tr.appendChild(pasien)
+                        tr.appendChild(penyakit)
+                        tr.appendChild(obat)
+                        tr.appendChild(botantd)
+
+                        requestResep.appendChild(tr)
+                    }    
+                }
+                else{
+                    console.log('Document does not exist')
+                }
+            })
+        }
+        else{
+            console.log('No requestResep')
+        }
     } else {
       console.log('No user logged in')
     }
 });
-

@@ -29,30 +29,32 @@
 
         <h1>Request Obat Pasien Anda</h1>
         <table id='requestResep'>
-                <tr>
+            <tr>
                 <th>Nama Pasien</th>
                 <th>Nama Penyakit</th>
                 <th>Nama Obat</th>
                 <th>Selesai</th>
-                </tr>
-                <tr>
-                <td>Budi</td>
-                <td>TBC</td>
-                <td>Pro TB</td>
-                <td><button class="button">Done</button></td> <!--setelah button dipencet nanti ilang dari tabel-->
-                </tr>
-                <tr>
-                <td>Budi</td>
-                <td>TBC</td>
-                <td>Analtram</td>
-                <td><button class="button">Done</button></td>
-                </tr>
-                <tr>
-                <td>Anna</td>
-                <td>Hati</td>
-                <td>Analtram</td>
-                <td><button class="button">Done</button></td>
-                </tr>
+            </tr>
+            <!--
+            <tr>
+            <td>Budi</td>
+            <td>TBC</td>
+            <td>Pro TB</td>
+            <td><button class="button">Done</button></td> 
+            </tr>
+            <tr>
+            <td>Budi</td>
+            <td>TBC</td>
+            <td>Analtram</td>
+            <td><button class="button">Done</button></td>
+            </tr>
+            <tr>
+            <td>Anna</td>
+            <td>Hati</td>
+            <td>Analtram</td>
+            <td><button class="button">Done</button></td>
+            </tr>
+            -->
         </table>
 
         <h2>Kirim Resep</h2>
@@ -90,7 +92,6 @@
             <label for="quantity">Quantity :</label><br>
             <input type="number" id="Quantity" name="Quantity"><br>
             -->
-            <button id="tambahObat">Tambah obat</button>
             <input id="submit" type="submit" value="Submit">
         </form> 
 
@@ -108,9 +109,11 @@
 		<!-- <script src="/__/firebase/init.js"></script> -->
 
 		<!-- Initialize with Emulator-->
-		<script src="/__/firebase/init.js?useEmulator=true "></script>
+        <script src="/__/firebase/init.js?useEmulator=true "></script>
+        
 		<script src="index.js"></script>
         <script src="auth.js"></script>
         <script src="app.js"></script>
+        <script src="tables.js"></script>
     </body>
 </html>

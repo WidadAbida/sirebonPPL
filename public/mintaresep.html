@@ -28,13 +28,12 @@
 
         <h2>Minta Resep</h2>
 
-        <form action=" "> <!-- tempat sambung ke database minta resep-->
+        <form id="mintaResep"> 
             <label for="namaP">Nama Penyakit :</label><br>
             <input type="text" id="namaP" name="namaP" required><br>
-            <label for="nama1">Nama obat 1 :</label><br>
-
-            <!--
-            <input type="text" id="nama1" name="nama1" required><br>
+            <label for="nama1">Nama obat:</label><br>
+            <input type="text" id="namaObat" name="namaObat" required><br>
+            <!-- 
             <label for="nama2">Nama obat 2 :</label><br>
             <input type="text" id="nama2" name="nama2"><br>
             <label for="nama3">Nama obat 3 :</label><br>
@@ -59,6 +58,7 @@
 		<!-- Initialize with Emulator-->
 		<script src="/__/firebase/init.js?useEmulator=true "></script>
 		<script src="index.js"></script>
-		<script src="auth.js"></script>
+        <script src="auth.js"></script>
+        <script src="app.js"></script>
     </body>
 </html>
