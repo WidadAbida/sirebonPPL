@@ -1,114 +1,118 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>You are a Patient!</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <style>
-        body {font-family: Arial, Helvetica, sans-serif;}
-        form {border: 3px solid #f1f1f1;}
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>You are a Patient!</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+		body {font-family: Arial, Helvetica, sans-serif;}
+		form {border: 3px solid #f1f1f1;}
 
-        input[type=email], input[type=password], input[type=name],input[type=nik],input[type=notelp],input[type=dokter] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
+		input[type=email], input[type=password], 
+		input[type=name],input[type=nik],
+		input[type=notelp],input[type=dokter] {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+		}
 
-        button {
-            background-color: #008CBA;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
+		button {
+			background-color: #008CBA;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+		}
 
-        button:hover {
-            opacity: 0.8;
-        }
+		button:hover {
+			opacity: 0.8;
+		}
 
-        .cancelbtn {
-            width: auto;
-            padding: 10px 18px;
-            background-color: #f44336;
-        }
+		.cancelbtn {
+			width: auto;
+			padding: 10px 18px;
+			background-color: #f44336;
+		}
 
-        .imgcontainer {
-            text-align: center;
-            margin: 24px 0 12px 0;
-        }
+		.imgcontainer {
+			text-align: center;
+			margin: 24px 0 12px 0;
+		}
 
-        .container {
-              padding: 16px;
-        } 
+		.container {
+			padding: 16px;
+		} 
 
-        span.psw {
-              float: right;
-            padding-top: 16px;
-        }
+		span.psw {
+			float: right;
+			padding-top: 16px;
+		}
 
-        @media screen and (max-width: 300px) {
-          span.psw {
-            display: block;
-            float: none;
-          }
-          .cancelbtn {
-            width: 100%;
-          }
-        }
-    </style>
-  </head>
+		@media screen and (max-width: 300px) {
+			span.psw {
+				display: block;
+				float: none;
+			}
+			.cancelbtn {
+				width: 100%;
+			}
+		}
+		</style>
+	</head>
 
-  <body>
-    <h2>Registration Form</h2>
+	<body>
+		<h2>Registration Form</h2>
 
-    <form id="registerPasien">
-    
-      <div class="container">
-        <label for="name"><b>Name</b></label>
-        <input type="name" placeholder="Enter Name" name="name" required>
+		<form id="registerPasien">
 
-        <label for="NIK"><b>NIK</b></label>
-        <input type="nik" placeholder="Enter NIK" name="NIK" required>
+			<div class="container">
+				<label for="name"><b>Name</b></label>
+				<input type="name" placeholder="Enter Name" name="name" required>
 
-        <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email" required>
-    
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-        
-        <label for="notelp"><b>No Telp</b></label>
-        <input type="notelp" placeholder="Enter Telephone Number" name="notelp" required>
+				<label for="NIK"><b>NIK</b></label>
+				<input type="nik" placeholder="Enter NIK" name="NIK" required>
 
-        <label for="dokter"><b>Dokter yang Menangani</b></label>
-        <input type="dokter" placeholder="Enter Your Doctor Name" name="dokter" required>
+				<label for="email"><b>Email</b></label>
+				<input type="email" placeholder="Enter Email" name="email" required>
 
-        <button type="submit">Register</button>
-      </div>
-    
-    </form>
-    <p>A user already?</p>
-    <a href="loginpasien.html"><button class="button">Log in</button></a>
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/8.1.1/firebase-app.js"></script>
+				<label for="notelp"><b>No Telp</b></label>
+				<input type="notelp" placeholder="Enter Telephone Number" name="notelp" required>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="/__/firebase/8.1.1/firebase-firestore.js"></script>
-        <script src="/__/firebase/8.1.1/firebase-auth.js"></script>
+				<label for="dokter"><b>Dokter yang Menangani</b></label>
+				<input type="dokter" placeholder="Enter Your Doctor Name" name="dokter" required>
 
-    <!-- Initialize Firebase -->
-    <!-- <script src="/__/firebase/init.js"></script> -->
+				<button type="submit">Register</button>
+			</div>
 
-    <!-- Initialize with Emulator-->
-    <script src="/__/firebase/init.js?useEmulator=true "></script>
-    <script src="index.js"></script>
-    <script src="auth.js"></script>
-  </body>
+		</form>
+
+		<p>A user already?</p>
+		<a href="loginpasien.html"><button class="button">Log in</button></a>
+
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="/__/firebase/8.1.1/firebase-app.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+		https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="/__/firebase/8.1.1/firebase-firestore.js"></script>
+		<script src="/__/firebase/8.1.1/firebase-auth.js"></script>
+
+		<!-- Initialize Firebase -->
+		<!-- <script src="/__/firebase/init.js"></script> -->
+
+		<!-- Initialize with Emulator-->
+		<script src="/__/firebase/init.js?useEmulator=true "></script>
+		
+		<script src="index.js"></script>
+		<script src="auth.js"></script>
+	</body>
 </html>

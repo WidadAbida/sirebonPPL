@@ -1,3 +1,7 @@
+// Get current user
+
+
+
 // Register Pasien
 const registerPasien = document.querySelector("#registerPasien");
 
@@ -23,10 +27,10 @@ if(registerPasien){
             })
 
             const jadwal = db.collection('jadwal').doc(email).set({
-                obat : [],
-                frekuensi : [],
-                sebses : [],
-                quantity : []
+                obat : ['-'],
+                frekuensi : ['-'],
+                sebses : ['-'],
+                quantity : ['-']
             })
 
             Promise.all([dbPasien, jadwal]).then(() => {
@@ -60,9 +64,9 @@ if(registerDokter){
             })
             
             const request = db.collection('requestResep').doc(email).set({
-                pasien = [],
-                penyakit = [],
-                obat = [],
+                pasien : [],
+                penyakit : [],
+                obat : [],
             })
 
             Promise.all([dbDokter, request]).then(() => {
@@ -84,19 +88,24 @@ if(loginPasien){
         const psw = loginPasien[name = 'psw'].value;
 
         const docRef = db.collection("pasien").doc(email);
-
-        docRef.get().then(function(doc){
-            if(doc.exists){
-                auth.signInWithEmailAndPassword(email, psw).then( () =>{
-                    alert('Login Succesfull!');
-                    window.location.href='jadwal.html'
-                }) 
-            }
-            else{
-                alert('User tidak ditemukan!');
-                loginPasien.reset();
-            }
-        })    
+        if(docRef){
+            docRef.get().then(function(doc){
+                if(doc.exists){
+                    auth.signInWithEmailAndPassword(email, psw).then( () =>{
+                        alert('Login Succesfull!');
+                        window.location.href='jadwal.html'
+                    }) 
+                }
+                else{
+                    alert('User tidak ditemukan!');
+                    loginPasien.reset();
+                }
+            })      
+        }
+        else{
+            alert('User tidak ditemukan!');
+            loginPasien.reset();
+        }
     })    
 }
 

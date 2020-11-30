@@ -58,7 +58,9 @@
         <h2>Kirim Resep</h2>
 
         <form id="kirimResep"> <!-- tempat sambung ke database-->
-            <label for="namaObat">Nama Obat 1 :</label><br>
+            <label for="email">Email Pasien :</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="namaObat">Nama Obat :</label><br>
             <input type="text" id="namaObat" name="namaObat" required><br>
             <label for="minum">Diminum ...x sehari :</label><br>
             <input type="number" id="minum" name="minum" required><br>
@@ -108,6 +110,7 @@
 		<!-- Initialize with Emulator-->
 		<script src="/__/firebase/init.js?useEmulator=true "></script>
 		<script src="index.js"></script>
-		<script src="auth.js"></script>
+        <script src="auth.js"></script>
+        <script src="app.js"></script>
     </body>
 </html>
