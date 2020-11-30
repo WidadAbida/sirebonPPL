@@ -1,5 +1,5 @@
 # sirebonPPL
-Sirebon (Sistem Resep Obat Online) untuk tugas Pengembangan Perangkat Lunak
+Sirebon (Sistem Resep Obat Online) untuk tugas Praktikum Pengembangan Perangkat Lunak
 
 https://sirebonppl.web.app
 
