@@ -35,26 +35,7 @@
                 <th>Nama Obat</th>
                 <th>Selesai</th>
             </tr>
-            <!--
-            <tr>
-            <td>Budi</td>
-            <td>TBC</td>
-            <td>Pro TB</td>
-            <td><button class="button">Done</button></td> 
-            </tr>
-            <tr>
-            <td>Budi</td>
-            <td>TBC</td>
-            <td>Analtram</td>
-            <td><button class="button">Done</button></td>
-            </tr>
-            <tr>
-            <td>Anna</td>
-            <td>Hati</td>
-            <td>Analtram</td>
-            <td><button class="button">Done</button></td>
-            </tr>
-            -->
+            
         </table>
 
         <h2>Kirim Resep</h2>
@@ -73,25 +54,7 @@
             </select><br>
             <label for="quantity">Quantity :</label><br>
             <input type="number" id="quantity" name="quantity" required><br>
-            <!--
-            <label for="namaObat">Nama Obat 2 :</label><br>
-            <input type="text" id="napaObat" name="napaObat"><br>
-            <label for="minum">Diminum ...x sehari :</label><br>
-            <input type="number" id="minum" name="minum"><br>
-            <label for="sebses">Sebelum/Sesudah makan :</label><br>
-            <input type="text" id="sebses" name="sebses"><br>
-            <label for="quantity">Quantity :</label><br>
-            <input type="number" id="Quantity" name="Quantity"><br>
 
-            <label for="namaObat">Nama Obat 3 :</label><br>
-            <input type="text" id="napaObat" name="napaObat"><br>
-            <label for="minum">Diminum ...x sehari :</label><br>
-            <input type="number" id="minum" name="minum"><br>
-            <label for="sebses">Sebelum/Sesudah makan :</label><br>
-            <input type="text" id="sebses" name="sebses"><br>
-            <label for="quantity">Quantity :</label><br>
-            <input type="number" id="Quantity" name="Quantity"><br>
-            -->
             <input id="submit" type="submit" value="Submit">
         </form> 
 
@@ -115,5 +78,43 @@
         <script src="auth.js"></script>
         <script src="app.js"></script>
         <script src="tables.js"></script>
+        <script>
+            function delRow(row){
+                const tr = row.parentNode.parentNode;
+                const td = row.parentNode;
+                console.log(tr)
+
+                const namaPasien = tr.children[0].innerText
+                const namaPenyakit = tr.children[1].innerText
+                const namaObat = tr.children[2].innerText
+
+                const emailDokter = auth.currentUser.email
+                db.collection('requestResep').doc(emailDokter).get().then(function(doc){
+                    var cpasien = doc.data().pasien
+                    var cobat = doc.data().obat
+                    var cpenyakit = doc.data().penyakit
+                    for(i=0;i<doc.data().pasien.length;i++){
+                        if( cpasien[i] == namaPasien && 
+                            cobat[i] == namaObat &&
+                            cpenyakit[i] == namaPenyakit){
+                                cpasien.splice(i, 1)
+                                cobat.splice(i, 1)
+                                cpenyakit.splice(i, 1)
+                                break
+                        }
+                    }
+
+                    db.collection('requestResep').doc(emailDokter).set({
+                        pasien : cpasien,
+                        penyakit : cpenyakit,
+                        obat : cobat
+                    }, {merge : true}).then(() => {
+                        console.log('Data removed successsfully')
+                    })
+
+                })
+                tr.parentNode.removeChild(tr);
+            }
+        </script>
     </body>
 </html>
