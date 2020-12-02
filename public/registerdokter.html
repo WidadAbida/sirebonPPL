@@ -3,10 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		<link href="https://bootswatch.com/4/minty/bootstrap.min.css" rel="stylesheet" type="text/css">
         <title>You are a Doctor!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-			body {font-family: Arial, Helvetica, sans-serif;}
+			<!-- body {font-family: Arial, Helvetica, sans-serif;} -->
 			form {border: 3px solid #f1f1f1;}
 
 			input[type=email], input[type=password], input[type=name],input[type=sip],input[type=notelp] {
@@ -61,36 +63,67 @@
 					width: 100%;
 				}
 			}
+			#contain{
+                /* font-weight: bold; */
+                /* border: 3px solid #f1f1f1;  */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                width:40%;
+                padding: 15px;
+                text-align: center;
+			}
+			#registerDokter{
+				border: 0px;
+			}
 		</style>
 	</head>
 	
     <body>
-		<h2>Registration Form</h2>
+		<div class="card border-primary mb-3" id="contain">
+			<form id="registerDokter">
+				<h2>Registration Form</h2>
+				<div class="form-group row">
+					<label for="name" class="col-sm-2 col-form-label col-form-label-sm">Nama</label>
+					<div class="col-sm-10">
+					  <input type="name" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Enter name" name="name" required>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="sip" class="col-sm-2 col-form-label col-form-label-sm">SIP</label>
+					<div class="col-sm-10">
+					  <input type="sip" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Enter SIP" name="sip" required>
+					</div>
+				</div>
 
-		<form id='registerDokter'>
-		
-			<div class="container">
-			<label for="name"><b>Name</b></label>
-			<input type="name" placeholder="Enter Name" name="name" required>
+				<div class="form-group row">
+					<label for="email" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
+					<div class="col-sm-10">
+					  <input type="email" class="form-control form-control-sm" id="colFormLabelSm" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
+					</div>
+				</div>
 
-			<label for="SIP"><b>SIP</b></label>
-			<input type="sip" placeholder="Enter NIK" name="SIP" required>
+				<div class="form-group row">
+					<label for="psw" class="col-sm-2 col-form-label col-form-label-sm">Password</label>
+					<div class="col-sm-10">
+					  <input type="password" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Enter password" name="psw" required>
+					</div>
+				</div>
 
-			<label for="email"><b>Email</b></label>
-			<input type="email" placeholder="Enter Email" name="email" required>
-		
-			<label for="psw"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="psw" required>
-			
-			<label for="notelp"><b>No Telp</b></label>
-			<input type="notelp" placeholder="Enter Telephone Number" name="notelp" required>
-
-			<button type="submit">Register</button>
-			</div>
-		
-		</form>
-		<p>A user already?</p>
-		<a href="logindokter.html"><button class="button">Log in</button></a>
+				<div class="form-group row">
+					<label for="notelp" class="col-sm-2 col-form-label col-form-label-sm">No. Telp</label>
+					<div class="col-sm-10">
+					  <input type="notelp" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Enter Telephone Number" name="notelp" required>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Register</button>
+				<br><br>		
+			</form>
+			<a>A user already?</a>
+			<a href="logindokter.html"><button class="btn btn-primary">Log in</button></a>
+		</div>
 
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="/__/firebase/8.1.1/firebase-app.js"></script>
@@ -107,5 +140,10 @@
 		<script src="/__/firebase/init.js?useEmulator=true "></script>
 		<script src="index.js"></script>
 		<script src="auth.js"></script>
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
     </body>
 </html>
