@@ -60,8 +60,8 @@ function renderRequestResep(doc) {
     }
 }
 
-//tabel daftarPasien
-function renderDaftarPasien(namaPasien, doc){
+//tabel tabelPasien
+function renderTabelPasien(namaPasien, doc){
     for(i=1;i<doc.data().obat.length;i++){
         let tr = document.createElement('tr')
         let nama = document.createElement('td')
@@ -102,9 +102,9 @@ auth.onAuthStateChanged(function(user) {
             })
         }
 
-        const daftarPasien = document.querySelector('#daftarPasien')
+        const tabelPasien = document.querySelector('#tabelPasien')
 
-        if(daftarPasien){
+        if(tabelPasien){
             const email = user.email
 
             db.collection('dokter').doc(email).get().then(function(doc){
@@ -118,7 +118,7 @@ auth.onAuthStateChanged(function(user) {
                         db.collection('pasien').doc(emailPasien).get().then((pasien) => {
                             console.log(pasien.data().dokter, namaDokter)
                             if(pasien.data().dokter == namaDokter){
-                                renderDaftarPasien(pasien.data().nama, doc)
+                                renderTabelPasien(pasien.data().nama, doc)
                             }
                         })
                     });
