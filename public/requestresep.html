@@ -3,11 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link href="https://bootswatch.com/4/minty/bootstrap.min.css" rel="stylesheet" type="text/css">
+        
         <title> Request Resep</title>
         <style>
                 table {
-                  font-family: arial, sans-serif;
+                  /* <!-- font-family: arial, sans-serif; --> */
+                  position: relative;
                   border-collapse: collapse;
                   width: 100%;}
                         
@@ -18,46 +21,94 @@
                         
                 tr:nth-child(even) {
                     background-color: #dddddd;}
+				h1 {text-align: center;}
+				
+				#contain{
+                /* font-weight: bold; */
+                /* border: 3px solid #f1f1f1;  */
+                position: relative;
+                top: 40px;
+                /* transform: translate(-50%, -50%); */
+                /* z-index: 2; */
+                width:40%;
+                padding: 15px;
+                text-align: center;
+				}
+                .content{ 
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+				#kirimResep{
+					border: 0px;
+				}
         </style>
     </head>
     <body>
-        <nav class="w3-bar w3-black">
-            <a href="daftarpasien.html" class="w3-button w3-bar-item">Daftar Pasien</a>
-            <a href="requestresep.html" class="w3-button w3-bar-item">Request Resep</a>
-            <button class="button" id='logout'> Logout </button>
-        </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<a class="navbar-brand" href="#">Sirebon</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			  	<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a href="daftarpasien.html" class="nav-link">Daftar Pasien</a>
+					</li>
+					<li class="nav-item active">
+						<a href="requestresep.html" class="nav-link">Request Resep<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<button class="btn btn-primary my-2 my-sm-0" id='logout'> Logout </button></a>
+					</li>
+				</ul>
+			</div>
+		  </nav>
+        
+        <div class="content">
+            <br>
+            <h1>Request Obat Pasien Anda</h1>
+            <table id='requestResep'>
+                <tr class="table-primary">
+                    <th>Nama Pasien</th>
+                    <th>Nama Penyakit</th>
+                    <th>Nama Obat</th>
+                    <th>Selesai</th>
+                </tr>
+            </table>
 
-        <h1>Request Obat Pasien Anda</h1>
-        <table id='requestResep'>
-            <tr>
-                <th>Nama Pasien</th>
-                <th>Nama Penyakit</th>
-                <th>Nama Obat</th>
-                <th>Selesai</th>
-            </tr>
             
-        </table>
-
-        <h2>Kirim Resep</h2>
-
-        <form id="kirimResep"> <!-- tempat sambung ke database-->
-            <label for="email">Email Pasien :</label><br>
-            <input type="email" id="email" name="email" required><br>
-            <label for="namaObat">Nama Obat :</label><br>
-            <input type="text" id="namaObat" name="namaObat" required><br>
-            <label for="minum">Diminum ...x sehari :</label><br>
-            <input type="number" id="minum" name="minum" required><br>
-            <label for="sebses">Sebelum/Sesudah makan :</label><br>
-            <select id="sebses">
-                <option value="sebelum">Sebelum</option>
-                <option value="sesudah">Sesudah</option>
-            </select><br>
-            <label for="quantity">Quantity :</label><br>
-            <input type="number" id="quantity" name="quantity" required><br>
-
-            <input id="submit" type="submit" value="Submit">
-        </form> 
-
+            <div class="card border-primary mb-3" id="contain">
+                <form id="kirimResep"> <!-- tempat sambung ke database-->
+                    <h2>Kirim Resep</h2>
+                    <div class="form-group">
+                        <label for="email">Email Pasien :</label><br>
+                        <input type="email" class="form-control" id="email" name="email" required><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="namaObat">Nama Obat :</label><br>
+                        <input type="text" class="form-control" id="namaObat" name="namaObat" required><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="minum">Diminum ...x sehari :</label><br>
+                        <input type="number" class="form-control" id="minum" name="minum" required><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="sebses">Sebelum/Sesudah makan :</label><br>
+                        <select id="sebses" class="form-control">
+                            <option value="sebelum">Sebelum</option>
+                            <option value="sesudah">Sesudah</option>
+                        </select><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity :</label><br>
+                        <input type="number" class="form-control" id="quantity" name="quantity" required><br>
+                    </div>
+                    <input id="submit" class="btn btn-primary" type="submit" value="Submit">
+                </form> 
+            </div>
+        </div>
 
 
         <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -116,5 +167,10 @@
                 tr.parentNode.removeChild(tr);
             }
         </script>
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
     </body>
 </html>
