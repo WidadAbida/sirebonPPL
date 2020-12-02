@@ -16,6 +16,8 @@ function renderJadwal(doc) {
             sebses.innerText = doc.data().sebses[i]
             quantity.innerText = doc.data().quantity[i]
             
+            tr.className = 'table-primary'
+
             tr.appendChild(nama)
             tr.appendChild(minum)
             tr.appendChild(sebses)
