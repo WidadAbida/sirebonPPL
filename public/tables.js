@@ -78,7 +78,7 @@ function renderTabelPasien(namaPasien, doc){
         tr.appendChild(obat)
         tr.appendChild(quantity)
 
-        daftarPasien.appendChild(tr)
+        tabelPasien.appendChild(tr)
     }
     
 }
@@ -115,10 +115,8 @@ auth.onAuthStateChanged(function(user) {
                 db.collection('jadwal').get().then((snap) => {
                     snap.forEach(doc => {
                         const emailPasien = doc.id
-                        console.log(emailPasien)
 
                         db.collection('pasien').doc(emailPasien).get().then((pasien) => {
-                            console.log(pasien.data().dokter, namaDokter)
                             if(pasien.data().dokter == namaDokter){
                                 renderTabelPasien(pasien.data().nama, doc)
                             }

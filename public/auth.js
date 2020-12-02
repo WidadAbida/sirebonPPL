@@ -6,7 +6,7 @@ if(registerPasien){
         e.preventDefault();
 
         const nama = registerPasien[name = 'name'].value;
-        const nik = registerPasien[name = 'NIK'].value;
+        const nik = registerPasien[name = 'nik'].value;
         const email = registerPasien[name = 'email'].value;
         const psw = registerPasien[name = 'psw'].value;
         const notelp = registerPasien[name = 'notelp'].value;
@@ -46,7 +46,7 @@ if(registerDokter){
         e.preventDefault();
 
         const nama = registerDokter[name = 'name'].value;
-        const sip = registerDokter[name = 'SIP'].value;
+        const sip = registerDokter[name = 'sip'].value;
         const email = registerDokter[name = 'email'].value;
         const psw = registerDokter[name = 'psw'].value;
         const notelp = registerDokter[name = 'notelp'].value;
