@@ -33,6 +33,7 @@ function renderRequestResep(doc) {
     if(doc.exists){
         for(i=0;i<doc.data().pasien.length;i++){
             let tr = document.createElement('tr')
+            let email = document.createElement('td')
             let pasien = document.createElement('td')
             let penyakit = document.createElement('td')
             let obat = document.createElement('td')
@@ -44,11 +45,13 @@ function renderRequestResep(doc) {
             botan.setAttribute('onclick', 'delRow(this)')
             botan.innerText = 'Done'
 
+            email.innerText = doc.data().email[i]
             pasien.innerText = doc.data().pasien[i]
             penyakit.innerText = doc.data().penyakit[i]
             obat.innerText = doc.data().obat[i]
             botantd.appendChild(botan)
 
+            tr.append(email)
             tr.appendChild(pasien)
             tr.appendChild(penyakit)
             tr.appendChild(obat)
@@ -82,6 +85,7 @@ function renderTabelPasien(namaPasien, doc){
     }
     
 }
+
 auth.onAuthStateChanged(function(user) {
     if (user) {
         const jadwal = document.querySelector('#jadwal')

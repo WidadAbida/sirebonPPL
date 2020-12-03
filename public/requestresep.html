@@ -71,6 +71,7 @@
             <h1>Request Obat Pasien Anda</h1>
             <table id='requestResep'>
                 <tr class="table-primary">
+                    <th>Email Pasien</th>
                     <th>Nama Pasien</th>
                     <th>Nama Penyakit</th>
                     <th>Nama Obat</th>
@@ -135,19 +136,23 @@
                 const td = row.parentNode;
                 console.log(tr)
 
-                const namaPasien = tr.children[0].innerText
-                const namaPenyakit = tr.children[1].innerText
-                const namaObat = tr.children[2].innerText
+                const emailPasien = tr.children[0].innerText
+                const namaPasien = tr.children[1].innerText
+                const namaPenyakit = tr.children[2].innerText
+                const namaObat = tr.children[3].innerText
 
                 const emailDokter = auth.currentUser.email
                 db.collection('requestResep').doc(emailDokter).get().then(function(doc){
+                    var cemail = doc.data().email
                     var cpasien = doc.data().pasien
                     var cobat = doc.data().obat
                     var cpenyakit = doc.data().penyakit
                     for(i=0;i<doc.data().pasien.length;i++){
-                        if( cpasien[i] == namaPasien && 
+                        if( cemail[i] == emailPasien &&
+                            cpasien[i] == namaPasien && 
                             cobat[i] == namaObat &&
                             cpenyakit[i] == namaPenyakit){
+                                cemail.splice(i, 1)
                                 cpasien.splice(i, 1)
                                 cobat.splice(i, 1)
                                 cpenyakit.splice(i, 1)
@@ -156,13 +161,13 @@
                     }
 
                     db.collection('requestResep').doc(emailDokter).set({
+                        email : cemail,
                         pasien : cpasien,
                         penyakit : cpenyakit,
                         obat : cobat
                     }, {merge : true}).then(() => {
                         console.log('Data removed successsfully')
                     })
-
                 })
                 tr.parentNode.removeChild(tr);
             }

@@ -12,27 +12,37 @@ if(registerPasien){
         const notelp = registerPasien[name = 'notelp'].value;
         const dokter = registerPasien[name = 'dokter'].value;
 
-        auth.createUserWithEmailAndPassword(email, psw).then( () =>{
+        db.collection('dokter').where('nama','==', dokter).get().then((doc) => {
+            if(doc.length > 0){
+                doc.forEach(snap => {
+                    auth.createUserWithEmailAndPassword(email, psw).then( () =>{
 
-            const dbPasien = db.collection("pasien").doc(email).set({
-                nama : nama,
-                nik : nik,
-                email : email,
-                notelp : notelp,
-                dokter : dokter
-            })
+                        const dbPasien = db.collection("pasien").doc(email).set({
+                            nama : nama,
+                            nik : nik,
+                            email : email,
+                            notelp : notelp,
+                            dokter : dokter
+                        })
 
-            const jadwal = db.collection('jadwal').doc(email).set({
-                obat : ['-'],
-                frekuensi : ['-'],
-                sebses : ['-'],
-                quantity : ['-']
-            })
+                        const jadwal = db.collection('jadwal').doc(email).set({
+                            obat : ['-'],
+                            frekuensi : ['-'],
+                            sebses : ['-'],
+                            quantity : ['-']
+                        })
 
-            Promise.all([dbPasien, jadwal]).then(() => {
-                alert('User Registration Succesfull!');
-                window.location.href='jadwal.html'
-            })
+                        Promise.all([dbPasien, jadwal]).then(() => {
+                            alert('User Registration Succesfull!');
+                            window.location.href='jadwal.html'
+                        })
+                    })    
+                });     
+            }
+            else{
+                alert('Dokter tidak ditemukan!')
+                registerPasien.reset()      
+            }
         })
     });    
 }
@@ -60,6 +70,7 @@ if(registerDokter){
             })
             
             const request = db.collection('requestResep').doc(email).set({
+                email : [],
                 pasien : [],
                 penyakit : [],
                 obat : [],

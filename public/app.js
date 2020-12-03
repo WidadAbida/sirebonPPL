@@ -58,16 +58,19 @@ if(mintaResep){
                             const emailDokter = doc.data().email
 
                             db.collection('requestResep').doc(emailDokter).get().then((doc) =>{
-                                let pasien = doc.data().pasien
+                                let cemail = doc.data().email
+                                let cpasien = doc.data().pasien
                                 let cpenyakit = doc.data().penyakit
                                 let cobat = doc.data().obat
-                    
-                                pasien.push(namaPasien)
+                                
+                                cemail.push(email)
+                                cpasien.push(namaPasien)
                                 cpenyakit.push(penyakit)
                                 cobat.push(obat)
                     
                                 db.collection('requestResep').doc(emailDokter).set({
-                                    pasien : pasien,
+                                    email : cemail,
+                                    pasien : cpasien,
                                     penyakit : cpenyakit,
                                     obat : cobat
                                 }, {merge : true}).then(() =>{
@@ -77,7 +80,6 @@ if(mintaResep){
                             })
                         });
                     })
-
                 })
             })
         } else {
