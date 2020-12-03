@@ -62,7 +62,7 @@
 					<li class="nav-item active">
 						<a href="requestresep.html" class="nav-link">Request Resep<span class="sr-only">(current)</span></a>
 					</li>
-                    <li class="nav-item">
+					<li class="nav-item">
 						<button class="btn btn-primary my-2 my-sm-0" id='logout'> Logout </button></a>
                     </li>
 				</ul>
@@ -70,7 +70,7 @@
 		  </nav>
         
         <div class="content">
-            <br>
+            <!--br>
             <h1>Request Obat Pasien Anda</h1>
             <table id='requestResep'>
                 <tr class="table-primary">
@@ -80,19 +80,17 @@
                     <th>Nama Obat</th>
                     <th>Selesai</th>
                 </tr>
-                <tr> <!--ini contoh doang, edit backend biar bisa dipencet-->
-                    <th>xxx@gmail.com</th>
-                    <th>Mashima Taichi</th>
-                    <th>Sakit Jantung</th>
-                    <th>Obat Jantung</th>
-                    <th> <a href="requestresep-2.html">Belum dikirim</a></th>
-                </tr>
-            </table>
+            </table-->
 
             
-            <!--div class="card border-primary mb-3" id="contain">
+            <div class="card border-primary mb-3" id="contain">
                 <form id="kirimResep"> <!-- tempat sambung ke database-->
-                    <!--h2>Kirim Resep</h2>
+                    <h2>Kirim Resep</h2>
+                    <div style="margin-bottom:auto;">
+                    <h6 style="float:left;height:60px;margin-left:30px;">Untuk : <p id="namaPasien">(Mashima Taichi)</p></h6> 
+                    <h6 style="float:right;height:60px;margin-right:30px">Obat Sebelumnya : <p id="Obatsebelumnya" > XXXX</p></h6> 
+                    </div>
+                    <br>
                     <div class="form-group">
                         <label for="email">Email Pasien :</label><br>
                         <input type="email" class="form-control" id="email" name="email" required><br>
@@ -118,7 +116,7 @@
                     </div>
                     <input id="submit" class="btn btn-primary" type="submit" value="Submit">
                 </form> 
-            </div-->
+            </div>
         </div>
 
 
@@ -140,6 +138,7 @@
         <script src="auth.js"></script>
         <script src="app.js"></script>
         <script src="tables.js"></script>
+        <!-- SCRIPTNYA SEHARUSNYA BERUBAH-->
         <script>
             function delRow(row){
                 const tr = row.parentNode.parentNode;
