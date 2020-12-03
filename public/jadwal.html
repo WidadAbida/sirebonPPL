@@ -18,7 +18,30 @@
                     
             tr:nth-child(even) {
                 background-color: #dddddd;}
-			h1 {text-align: center;}
+			      h1 {text-align: center;}
+            
+            button {
+            background-color: #008CBA;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            /*width: 100%;*/}
+
+            button:hover { opacity: 0.8;}
+            #contain{
+                /* font-weight: bold; */
+                /* border: 3px solid #f1f1f1;  */
+                position: absolute;
+                top: 55%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                width:40%;
+                padding: 15px;
+                text-align: center;
+			      }
         </style>
     </head>
 
@@ -53,7 +76,52 @@
             </tr>
         </table>
 
+        <div id="contain">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#aturJadwalModal">
+              Atur Pengingat Jadwal</button>
+        </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="aturJadwalModal" tabindex="-1" role="dialog" aria-labelledby="aturJadwalModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content card border-primary mb-3" style="position:relative;padding:15px; text-align:center;">
+                  <form id="aturJadwal">
+                          <h2>Atur Pengingat Jadwal</h2>
+                      <div class="modal-body">
+                          <div class="form-group">
+                              <label for="namaObat">Nama Obat :</label><br>
+                              <input type="text" class="form-control" id="namaObat" name="namaObat" required><br>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="minum">Diminum ...x sehari :</label><br>
+                              <input type="number" class="form-control" id="minum" name="minum" required><br>
+                          </div>
+                          <div class="form-group">
+                              <label for="sebses">Sebelum/Sesudah makan :</label><br>
+                              <select id="sebses" class="form-control">
+                                  <option value="Sebelum">Sebelum</option>
+                                  <option value="Sesudah">Sesudah</option>
+                              </select><br>
+                          </div>
+                          <div class="form-group">
+                              <label for="quantity">Quantity :</label><br>
+                              <input type="number" class="form-control" id="quantity" name="quantity" required><br>
+                          </div>
+                          <div class="form-group">
+                            <label for="tanggalMulai">Tanggal Mulai :</label><br>
+                            <input type="date" class="form-control" id="tanggalMulai" name="tanggalMulai" required><br>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                              <input id="submit" class="btn btn-primary" type="submit" value="Submit">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>    
+                  </form> 
+              </div>            
+          </div>
+        </div>
+        
         <!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="/__/firebase/8.1.1/firebase-app.js"></script>
 
